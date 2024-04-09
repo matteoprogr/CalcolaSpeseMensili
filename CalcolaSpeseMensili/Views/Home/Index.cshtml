@@ -1,0 +1,18 @@
+﻿@using (Html.BeginForm("calcolaspese", "Home", FormMethod.Post, new { enctype = "multipart/form-data",id="form" }))
+{
+          <!-- Inizia un form HTML che invia i dati al metodo "calcolaspese" del controller "Home" con il metodo di invio POST.
+        enctype = "multipart/form-data": La codifica "multipart/form-data" è necessaria quando si inviano file tramite un form.
+    -->
+    <div class="text-center">
+        <h5 class="display-4">Ciao, trascina o seleziona il file</h5>
+        <input type="file" name="file" required />
+        <button type="submit">Calcola</button>
+    </div>
+    <div class="rowTab">
+    <div class="colannaTabAli" id="tabella">
+            
+    </div>
+   
+    </div>
+    
+}

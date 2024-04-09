@@ -1,0 +1,198 @@
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+.colonnaTabAli {
+    width: 100%; /* Imposta la larghezza desiderata */
+    background-color: #faf0e6; /* Sfondo grigio chiaro */
+    border: 1px solid black; /* Bordo nero di 1px */
+    padding: 10px; /* Spaziatura interna */
+    box-sizing: border-box; /* Include il bordo nella larghezza e nell'altezza */
+    overflow-y: auto; /* Aggiungi una scrollbar verticale quando necessario */
+    overflow-x: auto; /* Aggiungi una scrollbar orizzontale quando necessario */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #007bff; /* Colore di sfondo della navbar */
+    overflow: hidden;
+}
+
+    /* Link della navbar */
+    .navbar a {
+        float: left; /* Disporre i link a sinistra */
+        display: block; /* Mostrare i link come blocchi per occupare tutta la larghezza della navbar */
+        color: white; /* Colore del testo */
+        text-align: center; /* Allineamento del testo al centro */
+        padding: 14px 16px; /* Spaziatura interna */
+        text-decoration: none; /* Rimuovere la sottolineatura */
+    }
+
+        /* Cambia il colore del link al passaggio del mouse */
+        .navbar a:hover {
+            background-color: #0056b3; /* Cambia il colore di sfondo al passaggio del mouse */
+        }
+
+        /* Aggiungi uno stile attivo al link corrente */
+        .navbar a.active {
+            background-color: #0042a3; /* Cambia il colore di sfondo del link attivo */
+        }
+
+/* Aggiungi un dropdown con il menu */
+.dropdown {
+    float: left; /* Disporre il dropdown a sinistra */
+    overflow: hidden; /* Nascondere gli elementi che vanno oltre il contenitore */
+}
+
+    /* Stile del pulsante del dropdown */
+    .dropdown .dropbtn {
+        font-size: 16px; /* Dimensione del testo */
+        border: none; /* Rimuovere il bordo */
+        outline: none; /* Rimuovere l'outline */
+        color: white; /* Colore del testo */
+        padding: 14px 16px; /* Spaziatura interna */
+        background-color: inherit; /* Ereditare il colore di sfondo */
+        font-family: inherit; /* Ereditare il font-family */
+        margin: 0; /* Rimuovere il margine */
+    }
+
+    /* Cambia il colore del pulsante del dropdown al passaggio del mouse */
+    .dropdown:hover .dropbtn {
+        background-color: #0056b3; /* Cambia il colore di sfondo al passaggio del mouse */
+    }
+
+/* Contenitore del dropdown */
+.dropdown-content {
+    display: none; /* Nascondere il dropdown di default */
+    position: absolute; /* Posizionare in modo assoluto rispetto al contenitore padre */
+    background-color: #f9f9f9; /* Colore di sfondo */
+    min-width: 160px; /* Larghezza minima */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Ombra */
+    z-index: 1; /* Posizionare sopra gli altri elementi */
+}
+
+/* Mostra il dropdown al passaggio del mouse sul contenitore */
+.dropdown:hover .dropdown-content {
+    display: block; /* Mostrare il dropdown */
+}
+
+/* Cambia il colore del link nel dropdown al passaggio del mouse */
+.dropdown-content a:hover {
+    background-color: #ddd; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+/* Aggiungi spaziatura tra i link nel dropdown */
+.dropdown-content a {
+    float: none; /* Resetta il float */
+    display: block; /* Mostra i link come blocchi */
+    text-align: left; /* Allineamento del testo a sinistra */
+    padding: 12px 16px; /* Spaziatura interna */
+    text-decoration: none; /* Rimuovi la sottolineatura */
+    color: black; /* Colore del testo */
+}
+
+    /* Aggiungi bordo inferiore agli elementi nel dropdown eccetto all'ultimo */
+    .dropdown-content a:not(:last-child) {
+        border-bottom: 1px solid #ddd; /* Aggiungi bordo inferiore */
+    }
+
+/* Stile per gli input */
+.container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Stile per i pulsanti */
+.container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .container button:hover {
+        background-color: #0056b3;
+    }
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: lavenderblush;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Stile dell'intestazione della tabella */
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Stile delle righe dispari */
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Stile delle celle */
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover delle righe */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+
+input {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.rowTab {
+    display: inline; /* Imposta i div della classe row come blocchi */
+    margin: 10px; /* Centra i div nella pagina */
+    margin-bottom: 20px; /* Aggiunge spazio tra i div */
+}
+
+.marginAll {
+    margin: 10px;
+    
+}

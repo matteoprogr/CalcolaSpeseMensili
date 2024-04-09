@@ -1,0 +1,1 @@
+My application allows you to import an excel file regarding current account transactions and returns a table,which describes for each row the type of expense and the amount of the expense. If there are expense items that you want to merge, you can select them via a checkbox and merge them into a new row.

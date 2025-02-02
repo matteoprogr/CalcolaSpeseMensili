@@ -10,13 +10,7 @@ namespace CalcolaSpeseMensili.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly CalcoloSpeseService calcoloSpeseService = new CalcoloSpeseService();
-       
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private readonly CalcoloSpeseService _calcoloSpeseService = new CalcoloSpeseService();
 
         public IActionResult Index()
         {
@@ -35,13 +29,12 @@ namespace CalcolaSpeseMensili.Controllers
         }
 
         [HttpPost]
-        public Dictionary<string,double> calcolaspese(IFormFile file, string mese)
+        public Dictionary<string,double> Calcolaspese(IFormFile file, string mese)
         {
             Dictionary<string, double> datiLavorati = new Dictionary<string, double>();
             if (file != null && file.Length > 0)
             {
                 Dictionary<string,double> data = new Dictionary<string,double>();
-                int righeNonDelMeseCalcolato = 0;
 
                 // apre lo stream del file
                 using (var stream = file.OpenReadStream())
@@ -71,32 +64,31 @@ namespace CalcolaSpeseMensili.Controllers
                             for (int i=0; i<dataTable.Rows.Count;i++)
                             {
                                 // itera sulle colonne
-                                    string? valoreString = Convert.ToString(dataTable.Rows[i][5]);
-                                    string? presso = Convert.ToString(dataTable.Rows[i][4]);
-                                    string? dataValuta = Convert.ToString(dataTable.Rows[i][2]);
+                                string? valoreString = Convert.ToString(dataTable.Rows[i][5]);
+                                string? presso = Convert.ToString(dataTable.Rows[i][4]);
+                                string? dataValuta = Convert.ToString(dataTable.Rows[i][2]);
 
-                                    if ((!string.IsNullOrEmpty(valoreString)|| !string.IsNullOrEmpty(presso)) && !string.IsNullOrEmpty(dataValuta))
+                                if ((!string.IsNullOrEmpty(valoreString)|| !string.IsNullOrEmpty(presso)) && !string.IsNullOrEmpty(dataValuta))
+                                {
+                                    string[] splitDataValuta = dataValuta.Split('/');
+                                    
+                                    if (splitDataValuta.Length > 1 
+                                        && splitDataValuta[1].Equals(mese) 
+                                        && !string.IsNullOrEmpty(presso))
                                     {
-                                        string[] splitDataValuta = dataValuta.Split('/');
-                                        
-                                        if (splitDataValuta.Length > 1 
-                                            && splitDataValuta[1].Equals(mese) 
-                                            && !string.IsNullOrEmpty(presso))
+                                        var valore = double.Parse(valoreString);
+                                        if (valore < 0)
                                         {
-                                            var valore = double.Parse(valoreString);
-                                            if (valore < 0)
-                                            {
-                                                data.Add(presso, valore);
-                                            }
-                                            // aggiunge lal coppia chiave-valore alla dictionary data
+                                            data.Add(presso, valore);
                                         }
                                     }
+                                }
                             }
                         }
                     }
                 }
 
-                datiLavorati = calcoloSpeseService.Calcolaspese(data);
+                datiLavorati = _calcoloSpeseService.Calcolaspese(data);
                 
             }
             return datiLavorati;
